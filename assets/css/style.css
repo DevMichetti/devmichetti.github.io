@@ -43,6 +43,15 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 15px;
+    flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
+    margin: 0;
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
+}
+
+nav ul li {
+    flex: 1 1 auto; /* Allow items to take up space evenly */
+    text-align: center;
 }
 
 nav ul li a {
@@ -51,6 +60,7 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* Hero and footer styles */
 .hero {
     background-color: #f0f0f0;
     text-align: center;
@@ -77,8 +87,13 @@ footer {
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: column; /* Stack the menu items vertically on small screens */
         gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%; /* Ensure each menu item takes the full width of the screen */
     }
 
     header {
@@ -123,4 +138,5 @@ footer {
         padding: 30px;
     }
 }
+
 
