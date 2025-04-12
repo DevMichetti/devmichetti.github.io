@@ -9,9 +9,6 @@
 </head>
 <body>
 
-  <!-- Sparkle Container -->
-  <div id="sparkle-container"></div>
-
   <!-- Content Wrapper -->
   <div class="content-wrapper">
     <header>
@@ -41,16 +38,20 @@
     </footer>
   </div>
 
+  <!-- Sparkles in foreground -->
+  <div id="sparkle-container"></div>
+
   <!-- Sparkle Script -->
   <script>
     const sparkleContainer = document.getElementById("sparkle-container");
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       const sparkle = document.createElement("div");
       sparkle.classList.add("sparkle");
       sparkle.style.left = `${Math.random() * 100}vw`;
-      sparkle.style.animationDelay = `${Math.random() * 10}s`;
-      sparkle.style.width = `${Math.random() * 5 + 2}px`;
+      sparkle.style.top = `${Math.random() * 100}vh`;
+      sparkle.style.animationDelay = `${Math.random() * 8}s`;
+      sparkle.style.width = `${Math.random() * 4 + 2}px`;
       sparkle.style.height = sparkle.style.width;
       sparkleContainer.appendChild(sparkle);
     }
