@@ -2,10 +2,10 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg,
-        rgba(128, 128, 0, 0.15),
-        rgba(255, 0, 128, 0.15),
-        rgba(128, 128, 0, 0.15),
+    background: linear-gradient(120deg, 
+        rgba(128, 128, 0, 0.15), 
+        rgba(255, 0, 128, 0.15), 
+        rgba(128, 128, 0, 0.15), 
         rgba(255, 0, 128, 0.15));
     background-size: 600% 600%;
     background-attachment: fixed;
@@ -15,6 +15,7 @@ body {
     position: relative; /* Ensure the sparkles are positioned correctly */
 }
 
+/* Shimmering gradient effect */
 @keyframes shimmer-roll {
     0% {
         background-position: 0% 50%;
@@ -45,8 +46,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 5px;
-    height: 5px;
     background-color: gold;
     border-radius: 50%;
     opacity: 0.8;
@@ -66,18 +65,6 @@ body {
     }
 }
 
-@keyframes sparkle-scale {
-    0% {
-        transform: scale(0.5);
-    }
-    50% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0.5);
-    }
-}
-
 /* Random floating animation for the sparkles */
 @keyframes float {
     0% {
@@ -91,13 +78,37 @@ body {
     }
 }
 
-/* Add floating sparkle effect to many sparkles */
+/* Random sizes for each sparkle */
+@keyframes sparkle-scale {
+    0% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+/* Floating sparkle effect for odd/even sparkles with random sizes */
 .sparkle:nth-child(odd) {
+    width: 4px;
+    height: 4px;
     animation: float 3s linear infinite, sparkle-scale 4s ease-in-out infinite;
 }
 
 .sparkle:nth-child(even) {
+    width: 8px;
+    height: 8px;
     animation: float 4s linear infinite, sparkle-scale 5s ease-in-out infinite;
+}
+
+/* Add even larger sparkles */
+.sparkle:nth-child(3n) {
+    width: 12px;
+    height: 12px;
+    animation: float 5s linear infinite, sparkle-scale 6s ease-in-out infinite;
 }
 
 /* Header, logo, and nav styles */
@@ -211,3 +222,15 @@ footer {
         padding: 30px;
     }
 }
+
+/* Extra large sparkles floating */
+.sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: gold;
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite;
+    z-index: -1; /* Ensure behind the text */
+}
+
