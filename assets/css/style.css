@@ -1,15 +1,17 @@
-/* Background shimmer (gold, rose gold, silver metallic effect) */
+/*--------------------------------------------------------------
+  Background Shimmer (Gold, Rose Gold, Silver Metallic Effect)
+--------------------------------------------------------------*/
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(
     135deg,
-    #d4af37 0%,
-    #b76e79 20%,
-    #c0c0c0 40%,
-    #f1e7b6 60%,
-    #bfa45a 80%,
-    #d4af37 100%
+    #d4af37 0%,      /* gold */
+    #b76e79 20%,     /* rose gold */
+    #c0c0c0 40%,     /* silver */
+    #f1e7b6 60%,     /* pale gold highlight */
+    #bfa45a 80%,     /* mid gold */
+    #d4af37 100%     /* gold again */
   );
   background-size: 400% 400%;
   animation: shimmer 12s ease infinite;
@@ -19,19 +21,16 @@ body {
   position: relative;
 }
 
+/* Radial Gradient Shimmer Overlay */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
   pointer-events: none;
-}
-
-/* Layout */
-header, main, footer {
-  position: relative;
-  z-index: 10;
 }
 
 @keyframes shimmer {
@@ -40,91 +39,125 @@ header, main, footer {
   100% { background-position: 0% 50%; }
 }
 
-/* Header */
+/*--------------------------------------------------------------
+  Layout Containers
+--------------------------------------------------------------*/
+header,
+main,
+footer {
+  position: relative;
+  z-index: 10;
+}
+
+/*--------------------------------------------------------------
+  Header & Navigation
+--------------------------------------------------------------*/
 header {
   background-color: #000;
   padding: 20px;
   text-align: center;
 }
+
 .logo {
   max-width: 150px;
+  height: auto;
 }
+
 nav ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 }
+
 nav ul li a {
   text-decoration: none;
-  color: #b76e79;
+  color: #b76e79;    /* rose gold links for contrast */
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* Hero Section */
+nav ul li a:hover {
+  color: #7b5e57;    /* deeper bronze hover */
+}
+
+/*--------------------------------------------------------------
+  Hero Section (Full-Width + Centered Content)
+--------------------------------------------------------------*/
 .hero {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 50px 20px;
-  margin: 0 auto;
-  min-height: 30vh;
+  width: 100%;
+  padding: 30px 20px;  /* reduced padding for tighter layout */
+  margin: 0;
+  min-height: 25vh;    /* shorter hero height */
 }
-
-
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3em;
-  color: #7b5e57;
+  color: #7b5e57;     /* deep bronze for readability */
+  margin: 0;
 }
 
-/* Footer */
-footer {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Global Section Styling */
+/*--------------------------------------------------------------
+  Global Section Styling
+--------------------------------------------------------------*/
 section {
   max-width: 800px;
-  margin: 3rem auto;
+  margin: 2rem auto;  /* reduced top/bottom margin */
   padding: 0 1rem;
   text-align: center;
   background: transparent;
-  color: #000;
+  color: #000;         /* general text black */
 }
 
 section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #7b5e57;
   font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #7b5e57;      /* deep bronze headings */
+  margin-bottom: 1rem;
 }
 
 section p {
   font-size: 1.125rem;
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-/* Remove bullets */
+/* Remove bullets from specialties list */
 #specialties ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-/* ── Responsive Adjustments ── */
+#specialties ul li {
+  margin-bottom: 0.75rem;
+}
+
+/*--------------------------------------------------------------
+  Footer
+--------------------------------------------------------------*/
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.875rem;
+}
+
+/*--------------------------------------------------------------
+  Responsive Adjustments
+--------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   body {
-    background-size: 600% 600%; /* zoom in shimmer for mobile */
+    background-size: 600% 600%;   /* zoom in shimmer for mobile */
   }
 
   nav ul {
@@ -133,10 +166,19 @@ section p {
   }
 
   .hero {
-    padding: 30px 10px;  /* tighter hero padding for mobile */
+    padding: 20px 10px; /* tighten mobile padding */
+    min-height: 20vh;
   }
 
-  .hero h1, section h2 {
-    color: #5c4033; /* slightly darker bronze for mobile readability */
+  .hero h1,
+  section h2 {
+    color: #5c4033;               /* darker on mobile for contrast */
   }
+}
+
+/*--------------------------------------------------------------
+  Hero Override: remove max-width if wrapping in <section>
+--------------------------------------------------------------*/
+section.hero {
+  max-width: none;
 }
