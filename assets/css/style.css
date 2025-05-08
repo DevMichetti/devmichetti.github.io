@@ -187,3 +187,26 @@ section.hero {
   padding-left: 0;
   margin-left: 0;
 }
+
+/*--------------------------------------------------------------
+  Bakery Gallery Slideshow
+--------------------------------------------------------------*/
+.slideshow {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.slideshow img {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* keyframe for cross‑fade */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
