@@ -1,49 +1,48 @@
-/* Background shimmer */
+/* Background shimmer (gold, rose gold, silver metallic effect) */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, rgba(128, 128, 0, 0.1), rgba(255, 0, 128, 0.1));
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,      /* gold */
+    #b76e79 20%,     /* rose gold */
+    #c0c0c0 40%,     /* silver */
+    #f1e7b6 60%,     /* pale gold highlight */
+    #bfa45a 80%,     /* mid gold */
+    #d4af37 100%     /* gold again */
+  );
+  background-size: 400% 400%;
+  animation: shimmer 12s ease infinite;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: 400% 400%;
-  animation: shimmer 20s ease infinite;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Stars floating in the foreground */
-.stars::before {
-  content: '';
+/* Radial gradient shimmer overlay */
+body::before {
+  content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
   pointer-events: none;
-  background-image: radial-gradient(circle, gold 1px, transparent 1px);
-  background-size: 3px 3px;
-  animation: twinkle 3s infinite alternate;
-  z-index: 1;
 }
 
-/* Text containers should be above stars */
+/* Layout */
 header, main, footer {
   position: relative;
   z-index: 10;
 }
 
+/* Shimmer animation */
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-@keyframes twinkle {
-  from { opacity: 0.5; }
-  to { opacity: 1; }
-}
-
-/* Layout */
+/* Header */
 header {
   background-color: #000;
   padding: 20px;
@@ -62,21 +61,22 @@ nav ul {
 }
 nav ul li a {
   text-decoration: none;
-  color: #C9A73F;
+  color: #b76e79; /* rose gold links for contrast */
   font-weight: bold;
 }
 
 /* Hero Section */
 .hero {
-  background-color: rgba(240, 240, 240, 0.8);
+  background-color: transparent;
   text-align: center;
-  padding: 100px 20px;
+  padding: 50px 20px;
   margin: 0;
 }
+
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3em;
-  color: #C9A73F;
+  color: #7b5e57; /* deep bronze for better readability */
 }
 
 /* Footer */
@@ -96,4 +96,43 @@ footer {
   .hero {
     padding: 50px 10px;
   }
+}
+
+/* Global Section Styling */
+section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  background: transparent;
+  color: #000; /* default text color to black */
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #7b5e57; /* deep bronze for readability */
+  font-family: 'Playfair Display', serif;
+}
+
+/* Section Paragraphs */
+section p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Override global section rules for hero */
+section.hero {
+  max-width: none;
+  margin: 0;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+/* Remove bullets from specialties list */
+#specialties ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
