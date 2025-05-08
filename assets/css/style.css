@@ -178,3 +178,12 @@ footer {
 section.hero {
   max-width: none;
 }
+
+/* Remove bullets from Contact & Location lists */
+.contact-order ul,
+.contact-order ol,
+.location ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
