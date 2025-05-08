@@ -4,12 +4,12 @@ body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(
     135deg,
-    #d4af37 0%,      /* gold */
-    #b76e79 20%,     /* rose gold */
-    #c0c0c0 40%,     /* silver */
-    #f1e7b6 60%,     /* pale gold highlight */
-    #bfa45a 80%,     /* mid gold */
-    #d4af37 100%     /* gold again */
+    #d4af37 0%,
+    #b76e79 20%,
+    #c0c0c0 40%,
+    #f1e7b6 60%,
+    #bfa45a 80%,
+    #d4af37 100%
   );
   background-size: 400% 400%;
   animation: shimmer 12s ease infinite;
@@ -19,7 +19,6 @@ body {
   position: relative;
 }
 
-/* Radial gradient shimmer overlay */
 body::before {
   content: "";
   position: fixed;
@@ -35,7 +34,6 @@ header, main, footer {
   z-index: 10;
 }
 
-/* Shimmer animation */
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -61,22 +59,29 @@ nav ul {
 }
 nav ul li a {
   text-decoration: none;
-  color: #b76e79; /* rose gold links for contrast */
+  color: #b76e79;
   font-weight: bold;
 }
 
 /* Hero Section */
 .hero {
-  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 50px 20px;
-  margin: 0;
+  margin: 0 auto;
+  min-height: 30vh;
 }
+
+
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3em;
-  color: #7b5e57; /* deep bronze for better readability */
+  color: #7b5e57;
 }
 
 /* Footer */
@@ -87,17 +92,6 @@ footer {
   padding: 20px;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hero {
-    padding: 50px 10px;
-  }
-}
-
 /* Global Section Styling */
 section {
   max-width: 800px;
@@ -105,34 +99,44 @@ section {
   padding: 0 1rem;
   text-align: center;
   background: transparent;
-  color: #000; /* default text color to black */
+  color: #000;
 }
 
-/* Section Headings */
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #7b5e57; /* deep bronze for readability */
+  color: #7b5e57;
   font-family: 'Playfair Display', serif;
 }
 
-/* Section Paragraphs */
 section p {
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
-/* Override global section rules for hero */
-section.hero {
-  max-width: none;
-  margin: 0;
-  padding: 20px 20px;
-  text-align: center;
-}
-
-/* Remove bullets from specialties list */
+/* Remove bullets */
 #specialties ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
+}
+
+/* ── Responsive Adjustments ── */
+@media screen and (max-width: 768px) {
+  body {
+    background-size: 600% 600%; /* zoom in shimmer for mobile */
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 30px 10px;  /* tighter hero padding for mobile */
+  }
+
+  .hero h1, section h2 {
+    color: #5c4033; /* slightly darker bronze for mobile readability */
+  }
 }
