@@ -12,11 +12,11 @@
       justify-content: center;
       gap: 1rem;
       margin: 2rem auto;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* force side-by-side */
     }
     .slide-item {
       text-align: center;
-      max-width: 45%;
+      width: 45%; /* fixed width to ensure side by side */
     }
     .slide-item img {
       width: 100%;
@@ -29,6 +29,15 @@
       margin-top: 0.5rem;
       font-style: italic;
       color: #7b5e57;
+    }
+    @media (max-width: 600px) {
+      /* On small screens, allow wrap if too narrow */
+      .slideshow {
+        flex-wrap: wrap;
+      }
+      .slide-item {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -123,7 +132,6 @@
         }, 500);
       }
 
-      // Initialize and run
       updateSlides();
       setInterval(updateSlides, 6000); // 6 seconds per change
     });
