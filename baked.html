@@ -5,18 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MV Bakery — Michetti Ventures</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Gallery Slideshow CSS -->
   <style>
+    /* Single gallery showing 2 images side by side with captions */
     .slideshow {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
       margin: 2rem auto;
+      flex-wrap: wrap;
     }
-    .slideshow img {
-      width: 80%;
-      max-width: 600px;
+    .slide-item {
+      text-align: center;
+      max-width: 45%;
+    }
+    .slide-item img {
+      width: 100%;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease-in-out;
+      display: block;
+    }
+    .slide-item figcaption {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #7b5e57;
     }
   </style>
 </head>
@@ -28,7 +40,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="contact.html">Contact & Order</a></li>
-        <li><a href="bakedgoods.html" class="active">MV Bakery</a></li>
+        <li><a href="baked.html" class="active">MV Bakery</a></li>
       </ul>
     </nav>
   </header>
@@ -45,7 +57,14 @@
     <section class="bakery-gallery">
       <h2>Gallery</h2>
       <div class="slideshow">
-        <img id="slideshow-image" src="assets/images/bakery/bakery1.jpg" alt="Bakery Image" />
+        <figure class="slide-item">
+          <img id="slideA" src="assets/images/bakery/Marshmallow-Coconut.jpg" alt="Marshmallow Coconut" />
+          <figcaption id="captionA">Marshmallow Coconut</figcaption>
+        </figure>
+        <figure class="slide-item">
+          <img id="slideB" src="assets/images/bakery/Oatmeal-Chocolatchip.jpg" alt="Oatmeal Chocolate Chip" />
+          <figcaption id="captionB">Oatmeal Chocolate Chip</figcaption>
+        </figure>
       </div>
     </section>
   </main>
@@ -54,29 +73,60 @@
     &copy; 2025 Michetti Ventures. All rights reserved.
   </footer>
 
-  <!-- Gallery Slideshow Script -->
   <script>
-    const images = [
-      'assets/images/bakery/Marshmallow-Coconut.jpg',
-      'assets/images/bakery/Oatmeal-Chocolatchip.jpg',
-      'assets/images/bakery/Gingersnap.jpg',
-      'assets/images/bakery/Raspberrybutton.jpg'
-	  'assets/images/bakery/Shortbread.jpg
-	  'assets/images/bakery/Monster.jpg
-	  'assets/images/bakery/buns.jpg
-	  'assets/images/bakery/cinnamon buns.jpg
-	  'assets/images/bakery/dinnerbuns.jpg
-	  'assets/images/bakery/Puff Pastry.jpg
-	  'assets/images/bakery/wholewheatbuns.jpg
-	  'assets/images/bakery/wholewheatdinnerbuns.jpg
-      // add more image paths as needed
-    ];
-    let currentIndex = 0;
-    const slideshowImage = document.getElementById('slideshow-image');
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      slideshowImage.src = images[currentIndex];
-    }, 3000);
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = [
+        'assets/images/bakery/Marshmallow-Coconut.jpg',
+        'assets/images/bakery/Oatmeal-Chocolatchip.jpg',
+        'assets/images/bakery/Gingersnap.jpg',
+        'assets/images/bakery/Raspberrybutton.jpg',
+        'assets/images/bakery/Shortbread.jpg',
+        'assets/images/bakery/Monster.jpg',
+        'assets/images/bakery/buns.jpg',
+        'assets/images/bakery/cinnamon%20buns.jpg',
+        'assets/images/bakery/dinnerbuns.jpg',
+        'assets/images/bakery/Puff%20Pastry.jpg',
+        'assets/images/bakery/wholewheatbuns.jpg',
+        'assets/images/bakery/wholewheatdinnerbuns.jpg'
+      ];
+      const labels = [
+        'Marshmallow Coconut',
+        'Oatmeal Chocolate Chip',
+        'Gingersnap',
+        'Raspberry Button',
+        'Shortbread',
+        'Monster Cookie',
+        'Buns',
+        'Cinnamon Buns',
+        'Dinner Buns',
+        'Puff Pastry',
+        'Whole Wheat Buns',
+        'Whole Wheat Dinner Buns'
+      ];
+      let index = 0;
+      const slideA = document.getElementById('slideA');
+      const slideB = document.getElementById('slideB');
+      const captionA = document.getElementById('captionA');
+      const captionB = document.getElementById('captionB');
+
+      function updateSlides() {
+        slideA.style.opacity = 0;
+        slideB.style.opacity = 0;
+        setTimeout(() => {
+          slideA.src = images[index];
+          slideB.src = images[(index + 1) % images.length];
+          captionA.textContent = labels[index];
+          captionB.textContent = labels[(index + 1) % labels.length];
+          slideA.style.opacity = 1;
+          slideB.style.opacity = 1;
+          index = (index + 2) % images.length;
+        }, 500);
+      }
+
+      // Initialize and run
+      updateSlides();
+      setInterval(updateSlides, 6000); // 6 seconds per change
+    });
   </script>
 
 </body>
