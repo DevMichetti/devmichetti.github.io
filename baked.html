@@ -1,1 +1,83 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Baked Goods</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header><nav><ul><li><a href="index.html">Home</a></li></ul></nav></header><main><h1>Baked Goods</h1><p>Homemade with love.</p></main><footer><p>&copy; 2025 Michetti Ventures</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MV Bakery — Michetti Ventures</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Gallery Slideshow CSS -->
+  <style>
+    .slideshow {
+      text-align: center;
+      margin: 2rem auto;
+    }
+    .slideshow img {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/images/logo/logo.png" alt="Michetti Ventures Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact & Order</a></li>
+        <li><a href="bakedgoods.html" class="active">MV Bakery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bakery-intro">
+      <h2>Introducing MV Bakery: A Labor of Love</h2>
+      <p>From a young age, Aganetha Michetti's passion for baking was ignited as she eagerly assisted her mother in the kitchen. The joy she experienced while providing her family with freshly baked goods was undeniable, and it has since blossomed into a lifelong love affair with the art of baking.</p>
+      <p>There's a certain glow that lights up Aganetha's face when she's in the midst of creating delectable treats. It's this passion that she now seeks to share with the community. With a commitment to using only the freshest ingredients and traditional family recipes, MV Bakery is dedicated to bringing the wholesome goodness of homemade treats to your table.</p>
+      <p>Whether it's a batch of buns, a batch of cookies, or a decadent treat, each creation from Aganetha's kitchen is crafted with love and care. Join us in savoring the simple pleasures of freshly baked goods and experience the warmth and comfort that only homemade treats can provide.</p>
+      <p><em>Stay tuned for updates on our upcoming offerings and how you can bring a taste of MV Bakery into your home. We can't wait to share our love for baking with you!</em></p>
+    </section>
+
+    <section class="bakery-gallery">
+      <h2>Gallery</h2>
+      <div class="slideshow">
+        <img id="slideshow-image" src="assets/images/bakery/bakery1.jpg" alt="Bakery Image" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Michetti Ventures. All rights reserved.
+  </footer>
+
+  <!-- Gallery Slideshow Script -->
+  <script>
+    const images = [
+      'assets/images/bakery/Marshmallow-Coconut.jpg',
+      'assets/images/bakery/Oatmeal-Chocolatchip.jpg',
+      'assets/images/bakery/Gingersnap.jpg',
+      'assets/images/bakery/Raspberrybutton.jpg'
+	  'assets/images/bakery/Shortbread.jpg
+	  'assets/images/bakery/Monster.jpg
+	  'assets/images/bakery/buns.jpg
+	  'assets/images/bakery/cinnamon buns.jpg
+	  'assets/images/bakery/dinnerbuns.jpg
+	  'assets/images/bakery/Puff Pastry.jpg
+	  'assets/images/bakery/wholewheatbuns.jpg
+	  'assets/images/bakery/wholewheatdinnerbuns.jpg
+      // add more image paths as needed
+    ];
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById('slideshow-image');
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      slideshowImage.src = images[currentIndex];
+    }, 3000);
+  </script>
+
+</body>
+</html>
