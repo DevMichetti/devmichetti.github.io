@@ -29,6 +29,8 @@
       margin-top: 0.5rem;
       font-style: italic;
       color: #7b5e57;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 1;
     }
     @media (max-width: 600px) {
       /* On small screens, allow wrap if too narrow */
@@ -48,8 +50,13 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html">Contact & Order</a></li>
-        <li><a href="baked.html" class="active">MV Bakery</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="microgreens.html">Microgreens</a></li>
+        <li><a href="baked.html">Baked Goods</a></li>
+        <li><a href="handmade.html">Handmade Goods</a></li>
+        <li><a href="lounge.html">The Lounge</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Order page is hidden from nav until launch -->
       </ul>
     </nav>
   </header>
@@ -121,13 +128,17 @@
       function updateSlides() {
         slideA.style.opacity = 0;
         slideB.style.opacity = 0;
+        captionA.style.opacity = 0;
+        captionB.style.opacity = 0;
         setTimeout(() => {
           slideA.src = images[index];
-          slideB.src = images[(index + 1) % images.length];
           captionA.textContent = labels[index];
+          slideB.src = images[(index + 1) % images.length];
           captionB.textContent = labels[(index + 1) % labels.length];
           slideA.style.opacity = 1;
           slideB.style.opacity = 1;
+          captionA.style.opacity = 1;
+          captionB.style.opacity = 1;
           index = (index + 2) % images.length;
         }, 500);
       }
