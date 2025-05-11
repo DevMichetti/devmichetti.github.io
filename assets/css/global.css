@@ -1,0 +1,76 @@
+/* Global Layout & Typography */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #d4af37, #b76e79, #c0c0c0, #f1e7b6, #bfa45a, #d4af37);
+  background-size: 400% 400%;
+  animation: shimmer 12s ease infinite;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  background: transparent;
+  color: #000;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #7b5e57;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+a, a:visited {
+  color: #b76e79;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover, a:focus {
+  color: #7b5e57;
+}
+
+.specialties-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.specialties-list li + li {
+  margin-top: 1rem;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+}

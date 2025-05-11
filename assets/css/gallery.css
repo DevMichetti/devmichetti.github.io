@@ -1,0 +1,32 @@
+.slideshow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  flex-wrap: nowrap;
+}
+.slide-item {
+  text-align: center;
+  width: 45%;
+}
+.slide-item img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: opacity 0.5s ease-in-out;
+}
+.slide-item figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #7b5e57;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+@media (max-width: 600px) {
+  .slideshow {
+    flex-wrap: wrap;
+  }
+  .slide-item {
+    width: 100%;
+  }
+}
