@@ -11,6 +11,7 @@ body {
   position: relative;
 }
 
+/* Radial Gradient overlay */
 body::before {
   content: "";
   position: fixed;
@@ -20,12 +21,14 @@ body::before {
   pointer-events: none;
 }
 
+/* Shimmer Animation */
 @keyframes shimmer {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* Section Styling */
 section {
   max-width: 800px;
   margin: 2rem auto;
@@ -48,6 +51,7 @@ section p {
   margin-bottom: 1rem;
 }
 
+/* Links */
 a, a:visited {
   color: #b76e79;
   font-weight: bold;
@@ -58,6 +62,7 @@ a:hover, a:focus {
   color: #7b5e57;
 }
 
+/* Specialties List */
 .specialties-list {
   list-style: none;
   padding-left: 0;
@@ -67,6 +72,7 @@ a:hover, a:focus {
   margin-top: 1rem;
 }
 
+/* Footer Styling */
 footer {
   background-color: #000;
   color: #fff;
